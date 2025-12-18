@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from bankapp import views
 urlpatterns = [
+    path('',views.homepage,name="homev"),
     path('admin/', admin.site.urls),
     path('home/',views.homepage,name="homev"),
     path('newreg/',views.newregpage,name="regv"),
