@@ -1,0 +1,65 @@
+body{
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    height: 100vh;             /* Full screen height */
+    margin: 0;
+}
+.logo1{
+    width: 100px;
+    height: 100px;
+}
+.headname{
+    text-align: center;
+    justify-content: center;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 0;                    /* move to top */
+    left: 10%;
+}
+.full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* horizontal center */  
+}
+.hyperlinks{
+    background-color:pink;
+    display: flex;
+    gap:30px;
+    text-decoration: none;
+    font-size: x-large;
+    width: 99%;
+    padding: 10px;
+}
+.a1{
+    text-decoration: none;
+    color:rgb(154, 11, 11);
+}
+.a1:hover{
+    color: white;
+}
+.head{
+    flex-direction: column;
+    
+    align-items:flex-end;
+}
+.main{
+    background-image:url(../images/BCG.webp) ;
+    height: 100%;
+    width: 100%;
+}
+.vj{
+    padding: 20px;
+}
+.one{
+    width: 300px;
+    padding: 20px;
+    margin-left:38%;
+    border: 2px solid #333;    /* square border */
+    border-radius: 8px;        /* remove or change for sharp corners */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}

@@ -1,0 +1,43 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mystatic/styles.css'%}?v=5">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+     <div style="background-image: url(../static/images/1.jpg); width: 100%; height: 100%;">
+        <div class="header">
+            <div class="vj">
+            <img src="{%static 'images/cbi.png'%}" width="200" height="200">
+            </div>
+            <div>
+            <h1>Welcome To Central Bank of India</h1>
+            </div>
+        </div>
+        <div class="hyperlinks">
+            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
+            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
+            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
+            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
+            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
+            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
+            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
+            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
+        </div>
+        <div>
+        <p style="font-size: x-large;"><i class="fa fa-check"></i>
+        CBI Bank is a modern financial institution dedicated to making banking simple, secure, and accessible for everyone. With cutting-edge digital services and personalized support, it helps individuals and businesses achieve their financial goals effortlessly. Built on trust and innovation, CBI Bank strives to redefine the future of banking with every customer interaction. 
+        </p>
+        </div>
+        <div class="one">
+            <h1>Contact Details</h1>
+            <p>Emailid : CBI@123gmail.com</p>
+            <p>ContactNo : 8125371595</p>
+        </div>
+        </div>
+</body>
+</html>

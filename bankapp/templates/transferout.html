@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mystatic/styles.css' %}?v=5">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Transfer</title>
+</head>
+<body>
+    <div style="background-image: url(../static/images/1.jpg); width: 100%; height: 100%;">
+        <div class="header">
+            <div class="vj">
+                <img src="{% static 'images/cbi.png' %}" width="100" height="100">
+            </div>
+            <div class="headname">
+                <h2>Central Bank of India</h2>
+            </div>
+        </div>
+       <div class="hyperlinks">
+            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
+            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
+            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
+            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
+            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
+            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
+            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
+            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
+        </div>
+        <div>
+            <center>
+            <h1>Money Transferred from "{{name}}" ..... to ..... "{{name2}}" </h1>
+            <hr>
+            <h2>Account Holder Name : {{name}}</h2>
+            <h2>Existing Balance is : Rs. {{old_bal1}}</h2>
+            <h2>Amount Transferred is : Rs. {{amount}}</h2>
+            <h2>Account Balance is : Rs. {{new_bal1}}</h2>
+            <hr><hr>
+            <h2>Account Holder Name : {{name2}}</h2>
+            <h2>Existing Balance is : Rs. {{old_bal2}}</h2>
+            <h2>Amount Received is : Rs. {{amount}}</h2>
+            <h2>Account Balance is : Rs. {{new_bal2}}</h2>
+            </center>
+        </div>
+    </div>
+</body>
+</html>

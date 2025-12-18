@@ -1,0 +1,47 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mystatic/styles.css'%}?v=5">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>New Acc</title>
+</head>
+<body>
+    <div style="background-image: url(../static/images/1.jpg); width: 100%; height: 100%;">
+        <div class="header">
+            <div class="vj">
+            <img src="{%static 'images/cbi.png'%}" width="200" height="200">
+            </div>
+            <div>
+            <h1>Welcome To Central Bank of India</h1>
+            </div>
+        </div>
+        <div class="hyperlinks">
+            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
+            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
+            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
+            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
+            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
+            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
+            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
+            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
+        </div>
+    
+    <center>
+        <h1>Fetch Balance</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>{{form.as_table}}</table>
+        <button type="submit">Fetch</button>
+    </form>
+    {% for msg in messages %}
+    {% if messages %}
+    <h2>{{msg}}</h2>
+    {% endif %}
+    {% endfor %}
+    </center>
+</div>
+</body>
+</html>
