@@ -1,7 +1,7 @@
 body{
     background-repeat: no-repeat;
     box-sizing: border-box;
-    height: 100vh;             /* Full screen height */
+    min-height: 100vh;             /* Full screen height */
     margin: 0;
 }
 .logo1{
@@ -46,11 +46,15 @@ body{
     
     align-items:flex-end;
 }
-.main{
-    background-image:url(../images/BCG.webp) ;
-    height: 100%;
-    width: 100%;
+.main {
+    background-image: url("../images/BCG.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
+
 .vj{
     padding: 20px;
 }
