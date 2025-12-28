@@ -25,15 +25,16 @@ body{
     flex-direction: column;
     align-items: center;      /* horizontal center */  
 }
-.hyperlinks{
-    background-color:pink;
+.hyperlinks {
+    background-color: pink;
     display: flex;
-    gap:30px;
-    text-decoration: none;
-    font-size: x-large;
-    width: 99%;
+    gap: 30px;
+    font-size: x-medium;
+    width: 100%;
     padding: 10px;
+    box-sizing: border-box;
 }
+
 .a1{
     text-decoration: none;
     color:rgb(154, 11, 11);
