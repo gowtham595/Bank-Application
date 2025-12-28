@@ -27,8 +27,9 @@ body{
 }
 .hyperlinks {
     background-color: pink;
-    display: flex;
-    gap: 30px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: x-medium;
     width: 100%;
     padding: 10px;
