@@ -1,52 +1,50 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{% static 'mystatic/styles.css'%}?v=5">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Transfer</title>
-</head>
-<body>
-    <div style="background-image: url(../static/images/1.jpg);min-height: 100vh;background-repeat: no-repeat;background-position: center;background-size: cover;overflow-x: hidden;">
-        <div class="header">
-            <div class="vj">
-                <img src="{% static 'images/cbi.png' %}" width="200" height="200">
+{% extends 'base.html' %}
+{% block title %}Bank Transfer - CBI Bank{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center animate-in">
+    <div class="col-lg-8 col-md-10">
+        <div class="cbi-card">
+            <div class="card-header-cbi text-center">
+                <h4><i class="fas fa-exchange-alt me-2"></i>Bank Transfer</h4>
+                <p class="mb-0 small opacity-75">Transfer money securely between accounts</p>
             </div>
-            <div>
-                <h1>Welcome To Central Bank of India</h1>
-            </div>
-        </div>
-      <div class="hyperlinks">
-            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
-            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
-            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
-            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
-            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
-            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
-            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
-            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
-        </div>
-        <div>
-            <center>
-            <h1>Transfer Money</h1>
-            <div>
-                <form method="POST">
+            <div class="card-body p-4 p-md-5">
+                <form method="POST" novalidate>
                     {% csrf_token %}
-                    <table>
-                        {{form.as_table}}
-                    </table>
-                    <input type="submit" value="Transfer">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-hashtag me-1 text-primary"></i>Your Account Number</label>
+                            {{ form.accno }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-user me-1 text-primary"></i>Your Name</label>
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-lock me-1 text-primary"></i>Password</label>
+                            {{ form.password }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-user-friends me-1 text-primary"></i>Recipient Account</label>
+                            {{ form.target_account }}
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label"><i class="fas fa-rupee-sign me-1 text-primary"></i>Transfer Amount</label>
+                        {{ form.amount }}
+                    </div>
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">{{ form.non_field_errors.0 }}</div>
+                    {% endif %}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-cbi btn-lg"><i class="fas fa-paper-plane me-2"></i>Transfer Money</button>
+                    </div>
                 </form>
-                {% for msg in messages %}
-                {% if messages %}
-                <h2 style="color: red;">{{msg}}</h2>
-                {% endif %}
-                {% endfor %}
             </div>
-            </center>
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

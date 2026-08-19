@@ -1,49 +1,35 @@
-{% load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{% static 'mystatic/styles.css'%}?v=5">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>New Acc</title>
-</head>
-<body>
-    <div style="background-image: url(../static/images/1.jpg);min-height: 100vh;background-repeat: no-repeat;background-position: center;background-size: cover;overflow-x: hidden;">
-        <div class="header">
-            <div class="vj">
-            <img src="{%static 'images/cbi.png'%}" width="200" height="200">
+{% extends 'base.html' %}
+{% block title %}Withdraw - CBI Bank{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center animate-in">
+    <div class="col-md-6 col-lg-5">
+        <div class="cbi-card">
+            <div class="card-header-cbi text-center">
+                <h4><i class="fas fa-arrow-up me-2"></i>Withdraw Funds</h4>
+                <p class="mb-0 small opacity-75">Withdraw money from your account</p>
             </div>
-            <div>
-            <h1>Welcome To Central Bank of India</h1>
+            <div class="card-body p-4 p-md-5">
+                <form method="POST" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-hashtag me-1 text-primary"></i>Account Number</label>
+                        {{ form.accno }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-lock me-1 text-primary"></i>Password</label>
+                        {{ form.password }}
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label"><i class="fas fa-rupee-sign me-1 text-primary"></i>Withdrawal Amount</label>
+                        {{ form.withdraw }}
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-cbi btn-lg w-100"><i class="fas fa-minus-circle me-2"></i>Withdraw Now</button>
+                    </div>
+                </form>
             </div>
         </div>
-       <div class="hyperlinks">
-            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
-            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
-            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
-            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
-            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
-            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
-            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
-            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
-        </div>
-    
-    <center>
-        <h1>Withdraw Form</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <button type="submit">Withdraw</button>
-    </form>
-    {% for msg in messages %}
-    {% if messages %}
-    <h2>{{msg}}</h2>
-    {% endif %}
-    {% endfor %}
-    </center>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

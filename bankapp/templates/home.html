@@ -1,37 +1,75 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{% static 'mystatic/styles.css'%}?v=5">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>home</title>
-</head>
-<body>
-    <div class="main">
-        <div>
-             <marquee direction="left" scrollamount="20"><h1><i class="fa fa-university"></i> Welcome to Central Bank of India</h1></marquee>
-        </div>
-        <div class="header">
-            <div>
-            <img src="{%static 'images/cbi.png'%}" width="200" height="200" style="padding: 20px;">
-            </div>
-            <div>
-            <h1>Central Bank of India</h1>
-            </div>
-        </div>
-        <div class="hyperlinks">
-            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
-            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
-            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
-            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
-            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
-            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
-            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
-            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
-        </div>
+{% extends 'base.html' %}
+{% block title %}Welcome - CBI Bank{% endblock %}
 
+{% block content %}
+<div class="hero animate-in">
+    <div class="container text-center">
+        <h1><i class="fas fa-shield-alt me-3"></i>Welcome to Central Bank of India</h1>
+        <p class="mb-4">Your trusted partner for secure and seamless banking experiences.</p>
+        <a href="{% url 'regv' %}" class="btn btn-accent btn-lg me-3"><i class="fas fa-user-plus me-2"></i>Open Account</a>
+        <a href="{% url 'balv' %}" class="btn btn-outline-light btn-lg"><i class="fas fa-wallet me-2"></i>Check Balance</a>
     </div>
-</body>
-</html>
+</div>
+
+<div class="container">
+    <h2 class="text-center mb-5" style="font-weight: 700; color: var(--primary);">
+        <i class="fas fa-th-large me-2"></i>Our Services
+    </h2>
+    <div class="row g-4">
+        <div class="col-md-4 col-sm-6 animate-in" style="animation-delay: 0.1s;">
+            <a href="{% url 'regv' %}" class="service-card">
+                <div class="service-icon"><i class="fas fa-user-plus"></i></div>
+                <h5>New Account</h5>
+                <p class="text-muted small mb-0">Open a new savings account in minutes with zero paperwork.</p>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 animate-in" style="animation-delay: 0.2s;">
+            <a href="{% url 'balv' %}" class="service-card">
+                <div class="service-icon"><i class="fas fa-wallet"></i></div>
+                <h5>Balance Enquiry</h5>
+                <p class="text-muted small mb-0">Check your account balance anytime, anywhere securely.</p>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 animate-in" style="animation-delay: 0.3s;">
+            <a href="{% url 'depv' %}" class="service-card">
+                <div class="service-icon"><i class="fas fa-arrow-down"></i></div>
+                <h5>Deposit</h5>
+                <p class="text-muted small mb-0">Add funds to your account instantly with confirmation.</p>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 animate-in" style="animation-delay: 0.4s;">
+            <a href="{% url 'drawv' %}" class="service-card">
+                <div class="service-icon"><i class="fas fa-arrow-up"></i></div>
+                <h5>Withdraw</h5>
+                <p class="text-muted small mb-0">Withdraw cash securely with instant balance updates.</p>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 animate-in" style="animation-delay: 0.5s;">
+            <a href="{% url 'transv' %}" class="service-card">
+                <div class="service-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h5>Bank Transfer</h5>
+                <p class="text-muted small mb-0">Transfer money between accounts safely and quickly.</p>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 animate-in" style="animation-delay: 0.6s;">
+            <a href="{% url 'delv' %}" class="service-card">
+                <div class="service-icon"><i class="fas fa-user-times"></i></div>
+                <h5>Close Account</h5>
+                <p class="text-muted small mb-0">Deactivate your account securely when needed.</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="mt-5 p-4 cbi-card animate-in" style="animation-delay: 0.7s;">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h4 style="color: var(--primary); font-weight: 700;"><i class="fas fa-chart-line me-2"></i>Why Choose CBI Bank?</h4>
+                <p class="text-muted mb-0">With over 100 years of banking excellence, we offer cutting-edge digital services, 24/7 customer support, and bank-grade security for all your financial needs.</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="{% url 'aboutv' %}" class="btn btn-cbi"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

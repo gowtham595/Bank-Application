@@ -1,46 +1,28 @@
-{% load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{% static 'mystatic/styles.css'%}?v=5">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>New Acc</title>
-</head>
-<body>
-   <div style="background-image: url(../static/images/1.jpg);min-height: 100vh;background-repeat: no-repeat;background-position: center;background-size: cover;overflow-x: hidden;">
-        <div class="header">
-            <div class="vj">
-            <img src="{%static 'images/cbi.png'%}" width="200" height="200">
+{% extends 'base.html' %}
+{% block title %}Withdrawal Successful - CBI Bank{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center animate-in">
+    <div class="col-md-6 col-lg-5">
+        <div class="result-box">
+            <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+            <h4 class="mb-3">Withdrawal Successful!</h4>
+            <p class="text-muted">Account No: <strong>{{ accno }}</strong></p>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <p class="text-muted small mb-1">Previous Balance</p>
+                    <h5>₹ {{ balance }}</h5>
+                </div>
+                <div class="col-6">
+                    <p class="text-muted small mb-1">Withdrawn</p>
+                    <h5 class="text-danger">- ₹ {{ withdraw }}</h5>
+                </div>
             </div>
-            <div>
-            <h1>Welcome To Central Bank of India</h1>
-            </div>
+            <hr>
+            <p class="text-muted small mb-1">New Balance</p>
+            <div class="result-amount">₹ {{ newbalance }}</div>
+            <a href="{% url 'drawv' %}" class="btn btn-cbi mt-3"><i class="fas fa-minus me-2"></i>Another Withdrawal</a>
         </div>
-        <div class="hyperlinks">
-            <a href="{% url 'homev'%}" class="a1"><i class="fa fa-home"></i> Home</a> &NonBreakingSpace;
-            <a href="{% url 'regv'%}" class="a1"><i class="fa-solid fa-user-plus"></i>New Account</a> &NonBreakingSpace;
-            <a href="{% url 'balv'%}" class="a1"><i class="fa-solid fa-wallet"></i>Balance Enquiry</a> &NonBreakingSpace;
-            <a href="{% url 'depv'%}" class="a1"><i class="fa-solid fa-hand-holding-dollar"></i>Deposit</a> &NonBreakingSpace;
-            <a href="{% url 'drawv'%}" class="a1"><i class="fa-solid fa-money-bill-transfer"></i>Withdraw</a> &NonBreakingSpace;
-            <a href="{% url 'transv'%}" class="a1"><i class="fa-solid fa-arrows-left-right"></i>Bank Transfer</a> &NonBreakingSpace;
-            <a href="{% url 'delv'%}" class="a1"><i class="fa-solid fa-user-slash"></i> Close Account</a> &NonBreakingSpace;
-            <a href="{% url 'aboutv'%}" class="a1"><i class="fa-solid fa-circle-info"></i>About Us</a> &NonBreakingSpace;
-        </div>
-    
-    <center>
-    <table border="1">
-    <p>your balance before withdrawl is {{balance}}</p>
-    <p>your withdrawl amount is {{withdraw}}</p>
-    <p>your current balance is {{newbalance}}</p>
-    </table>
-    {% for msg in messages %}
-                {% if messages %}
-                <h2 style="color: red;">{{msg}}</h2>
-                {% endif %}
-                {% endfor %}
-    </center>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}
